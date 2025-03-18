@@ -2,15 +2,19 @@
   "name": "e-comerce",
   "version": "0.1.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "migrate": "tsx migrations/migrate",
+    "migrate:generate": "tsx migrations/generate"
   },
   "dependencies": {
+    "contentful": "^11.5.8",
     "next": "15.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -26,19 +30,26 @@
     "@storybook/react": "^8.6.7",
     "@storybook/test": "^8.6.7",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.17.24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/yargs": "^17.0.33",
     "@vitest/browser": "^3.0.9",
     "@vitest/coverage-v8": "^3.0.9",
+    "contentful-management": "^11.48.0",
+    "contentful-migration": "^4.28.1",
+    "dotenv": "^16.4.7",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "eslint-plugin-storybook": "^0.11.6",
     "playwright": "^1.51.1",
     "storybook": "^8.6.7",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "vitest": "^3.0.9"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9",
+    "yargs": "^17.7.2"
   },
   "eslintConfig": {
     "extends": [

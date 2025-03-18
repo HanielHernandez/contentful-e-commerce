@@ -1,0 +1,96 @@
+ValidationFailed: {
+  "status": 422,
+  "statusText": "Unprocessable Entity",
+  "message": "Validation error",
+  "details": {
+    "errors": [
+      {
+        "name": "validationDefined",
+        "details": "Text fields do not support \"unique\" validations",
+        "value": {
+          "id": "dpkk",
+          "name": "URL",
+          "type": "Text",
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "flags": "i"
+              }
+            }
+          ],
+          "apiName": "url",
+          "localized": false,
+          "disabled": false,
+          "omitted": false,
+          "deleted": false
+        },
+        "type": "validationDefined",
+        "path": [
+          "fields",
+          2,
+          "validations",
+          0
+        ]
+      }
+    ]
+  },
+  "request": {
+    "url": "https://api.contentful.com/spaces/0k1lmot35ek0/environments/master/content_types/Links",
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/vnd.contentful.management.v1+json",
+      "X-Contentful-User-Agent": "app contentful.migration-cli/4.28.1; feature migration-library; sdk contentful-management-plain.js/11.48.0; platform node.js/v20.15.1; os Windows/v20.15.1;",
+      "CF-Sequence": "94ea36fc-d314-4439-83cf-b4d5d0fd330c",
+      "Authorization": "Bearer ...VVaYc",
+      "X-Contentful-Version": "0",
+      "User-Agent": "axios/1.7.9",
+      "Content-Length": "400",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "put",
+    "payloadData": "{\"name\":\"Links\",\"fields\":[{\"id\":\"icon\",\"name\":\"Icon\",\"type\":\"Text\",\"validations\":[{\"in\":[\"x\",\"facebook\",\"instagram\",\"linkedin\",\"mastodon\",\"bluesky\",\"youtube\",\"linkedin\"]}],\"required\":true},{\"id\":\"text\",\"name\":\"Text\",\"type\":\"Text\",\"required\":true},{\"id\":\"url\",\"name\":\"URL\",\"type\":\"Text\",\"required\":true,\"validations\":[{\"unique\":true},{\"regexp\":{\"pattern\":\"^[a-z0-9]+(?:-[a-z0-9]+)*$\",\"flags\":\"i\"}}]}]}"
+  },
+  "requestId": "ee1b9339-2586-42f4-b1b7-a504ce89138a"
+}
+    at errorHandler (webpack:///node_modules/contentful-sdk-core/dist/error-handler.js:48:1)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at makeRequest (webpack:///adapters/REST/make-request.ts:36:10)
+    at Task.task (C:\xampp\htdocs\projects\e-comerce\node_modules\contentful-migration\src\bin\cli.ts:197:19)
+    at async Task.run (C:\xampp\htdocs\projects\e-comerce\node_modules\listr2\dist\lib\task.js:213:21)
+    at async C:\xampp\htdocs\projects\e-comerce\node_modules\p-map\index.js:57:22NotFound: {
+  "status": 404,
+  "statusText": "Not Found",
+  "message": "The resource could not be found.",
+  "details": {
+    "type": "ContentType",
+    "id": "Links",
+    "environment": "master",
+    "space": "0k1lmot35ek0"
+  },
+  "request": {
+    "url": "https://api.contentful.com/spaces/0k1lmot35ek0/environments/master/content_types/Links/published",
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/vnd.contentful.management.v1+json",
+      "X-Contentful-User-Agent": "app contentful.migration-cli/4.28.1; feature migration-library; sdk contentful-management-plain.js/11.48.0; platform node.js/v20.15.1; os Windows/v20.15.1;",
+      "CF-Sequence": "94ea36fc-d314-4439-83cf-b4d5d0fd330c",
+      "Authorization": "Bearer ...VVaYc",
+      "X-Contentful-Version": "1",
+      "User-Agent": "axios/1.7.9",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "put"
+  },
+  "requestId": "8403630a-6f57-4df1-a6a2-62c8ab48a727"
+}
+    at errorHandler (webpack:///node_modules/contentful-sdk-core/dist/error-handler.js:48:1)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at makeRequest (webpack:///adapters/REST/make-request.ts:36:10)
+    at Task.task (C:\xampp\htdocs\projects\e-comerce\node_modules\contentful-migration\src\bin\cli.ts:197:19)
+    at async Task.run (C:\xampp\htdocs\projects\e-comerce\node_modules\listr2\dist\lib\task.js:213:21)
+    at async C:\xampp\htdocs\projects\e-comerce\node_modules\p-map\index.js:57:22
