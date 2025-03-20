@@ -4,26 +4,36 @@ import Migration from "contentful-migration";
 const migration: ContentFulMigration = {
   name: "03-add-links",
   migrateFunction(migration: Migration) {
-    const productContentType = migration
-      .createContentType("Link")
-      .name("Link");
+    const linkContentType = migration.createContentType("link").name("Link");
 
-    productContentType
+    linkContentType
       .createField("icon")
       .name("Icon")
       .type("Text")
-      .validations([{
-        in: ['x','facebook','instagram','linkedin','mastodon','bluesky','youtube','linkedin']
-      }])
+      .validations([
+        {
+          in: [
+            "x",
+            "facebook",
+            "instagram",
+            "linkedin",
+            "mastodon",
+            "bluesky",
+            "youtube",
+            "linkedin",
+            "none"
+          ],
+        },
+      ])
       .required(true);
 
-    productContentType
+    linkContentType
       .createField("text")
       .name("Text")
       .type("Symbol")
       .required(true);
 
-    productContentType
+    linkContentType
       .createField("url")
       .name("URL")
       .type("Symbol")
@@ -37,10 +47,23 @@ const migration: ContentFulMigration = {
         },
       ]);
 
-    productContentType.changeFieldControl("url", "builtin", "urlEditor",{
-      
+  linkContentType
+    .createField("links")
+    .name("Links")
+    .type("Array")
+    .items({
+      type: "Link",
+      linkType: "Entry",
+      validations: [
+        {
+          linkContentType: ["link"],
+        },
+      ],
     });
-    productContentType.changeFieldControl("icon", "builtin", "dropdown");
+
+    linkContentType.changeFieldControl("url", "builtin", "urlEditor", {});
+    linkContentType.changeFieldControl("icon", "builtin", "dropdown");
+    linkContentType.displayField("text");
   },
 };
 

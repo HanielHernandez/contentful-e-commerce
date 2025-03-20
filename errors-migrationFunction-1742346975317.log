@@ -1,0 +1,93 @@
+ValidationFailed: {
+  "status": 422,
+  "statusText": "Unprocessable Entity",
+  "message": "Validation error",
+  "details": {
+    "errors": [
+      {
+        "name": "validationDefined",
+        "details": "Link fields do not support \"size\" validations",
+        "value": {
+          "id": "bmlq",
+          "name": "Logo",
+          "type": "Link",
+          "validations": [
+            {
+              "size": {
+                "max": 1
+              }
+            }
+          ],
+          "linkType": "Asset",
+          "apiName": "logo",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "deleted": false
+        },
+        "type": "validationDefined",
+        "path": [
+          "fields",
+          1,
+          "validations",
+          0
+        ]
+      }
+    ]
+  },
+  "request": {
+    "url": "https://api.contentful.com/spaces/0k1lmot35ek0/environments/master/content_types/navbar",
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/vnd.contentful.management.v1+json",
+      "X-Contentful-User-Agent": "app contentful.migration-cli/4.28.1; feature migration-library; sdk contentful-management-plain.js/11.48.0; platform node.js/v20.15.1; os Windows/v20.15.1;",
+      "CF-Sequence": "46642099-163d-4c38-94f3-a5d450cf9264",
+      "Authorization": "Bearer ...VVaYc",
+      "X-Contentful-Version": "0",
+      "User-Agent": "axios/1.7.9",
+      "Content-Length": "326",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "put",
+    "payloadData": "{\"name\":\"Navbar\",\"fields\":[{\"id\":\"title\",\"name\":\"title\",\"required\":true,\"type\":\"Symbol\",\"validations\":[{\"unique\":true}]},{\"id\":\"logo\",\"name\":\"Logo\",\"type\":\"Link\",\"validations\":[{\"size\":{\"max\":1}}],\"linkType\":\"Asset\"},{\"id\":\"links\",\"name\":\"Links\",\"type\":\"Link\",\"linkType\":\"Entry\",\"validations\":[{\"linkContentType\":[\"link\"]}]}]}"
+  },
+  "requestId": "7982cf7a-24f1-4276-84fb-325c4afe6def"
+}
+    at errorHandler (webpack:///node_modules/contentful-sdk-core/dist/error-handler.js:48:1)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at makeRequest (webpack:///adapters/REST/make-request.ts:36:10)
+    at Task.task (C:\xampp\htdocs\projects\e-comerce\node_modules\contentful-migration\src\bin\cli.ts:197:19)
+    at async Task.run (C:\xampp\htdocs\projects\e-comerce\node_modules\listr2\dist\lib\task.js:213:21)
+    at async C:\xampp\htdocs\projects\e-comerce\node_modules\p-map\index.js:57:22NotFound: {
+  "status": 404,
+  "statusText": "Not Found",
+  "message": "The resource could not be found.",
+  "details": {
+    "type": "ContentType",
+    "id": "navbar",
+    "environment": "master",
+    "space": "0k1lmot35ek0"
+  },
+  "request": {
+    "url": "https://api.contentful.com/spaces/0k1lmot35ek0/environments/master/content_types/navbar/published",
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/vnd.contentful.management.v1+json",
+      "X-Contentful-User-Agent": "app contentful.migration-cli/4.28.1; feature migration-library; sdk contentful-management-plain.js/11.48.0; platform node.js/v20.15.1; os Windows/v20.15.1;",
+      "CF-Sequence": "46642099-163d-4c38-94f3-a5d450cf9264",
+      "Authorization": "Bearer ...VVaYc",
+      "X-Contentful-Version": "1",
+      "User-Agent": "axios/1.7.9",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "put"
+  },
+  "requestId": "07d2d2b1-60f3-48cf-acf0-88d2e93293b9"
+}
+    at errorHandler (webpack:///node_modules/contentful-sdk-core/dist/error-handler.js:48:1)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at makeRequest (webpack:///adapters/REST/make-request.ts:36:10)
+    at Task.task (C:\xampp\htdocs\projects\e-comerce\node_modules\contentful-migration\src\bin\cli.ts:197:19)
+    at async Task.run (C:\xampp\htdocs\projects\e-comerce\node_modules\listr2\dist\lib\task.js:213:21)
+    at async C:\xampp\htdocs\projects\e-comerce\node_modules\p-map\index.js:57:22

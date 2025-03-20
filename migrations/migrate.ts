@@ -1,8 +1,10 @@
 import Migration, { MigrationFunction, runMigration } from "contentful-migration";
 import dotenv from "dotenv";
-// import addAcategory from "./01-add-category";
-// import addProducts from "./02-add-product-content-type";
+import addAcategory from "./01-add-category";
+import addProducts from "./02-add-product-content-type";
 import addLinks from "./03-add-link-content-type";
+import addNavbar from "./04-add-navbar";
+import addPage from "./05-add-page-content-type";
 // import yargs from "yargs/yargs";
 // import { hideBin } from 'yargs/helpers'
 
@@ -14,9 +16,12 @@ export interface ContentFulMigration {
 }
 
 const migrations: ContentFulMigration[] = [
-  //addAcategory,
-  //addProducts,
-  addLinks];
+  addAcategory,
+  addProducts,
+  addLinks,
+  addNavbar,
+  addPage,
+];
 
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN;

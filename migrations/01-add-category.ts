@@ -1,5 +1,5 @@
 import { ContentFulMigration } from "./migrate";
-import Migration from 'contentful-migration'
+import  Migration from "contentful-migration";
 
 const migration: ContentFulMigration = {
   name: "01-add-category",
@@ -17,12 +17,9 @@ const migration: ContentFulMigration = {
       .name("Description")
       .type("RichText")
       .required(true);
-    categoryContentType
-      .createField("images")
-      .name("Images")
-      .type("Link")
-      .linkType("Asset");
+
+    categoryContentType.displayField("name");
   },
 };
 
-export default migration
+export default migration;

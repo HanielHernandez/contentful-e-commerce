@@ -10,31 +10,33 @@ const migration: ContentFulMigration = {
       
     navbarContentType
       .createField("title")
-      .name("title")
+      .name("Title")
       .required(true)
+      .type('Symbol')
       .validations([{ unique: true }]);
 
     navbarContentType
       .createField("logo")
       .name("Logo")
       .type("Link")
-      .validations([
-        {
-          size: { max: 1 },
-        },
-      ])
       .linkType("Asset");
 
     navbarContentType
       .createField("links")
       .name("Links")
-      .type("Link")
-      .linkType("Entry")
-      .validations([
-        {
-          linkContentType: ["link"],
-        },
-      ]);
+      .type("Array")
+      .items({
+        type: "Link",
+        linkType: "Entry",
+        validations: [
+          {
+            linkContentType: ["link"],
+          },
+        ],
+      });
+
+          navbarContentType.displayField("title");
+
   },
 };
 

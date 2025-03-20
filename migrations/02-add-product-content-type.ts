@@ -45,9 +45,12 @@ const migration: ContentFulMigration = {
     productContentType
       .createField("images")
       .name("Images")
-      .type("Link")
-      .linkType("Asset");
-
+      .type("Array")
+      .items({
+        type: "Link",
+        linkType: "Asset",
+      });
+      
     productContentType
       .createField("price")
       .name("Price")
@@ -66,18 +69,22 @@ const migration: ContentFulMigration = {
     productContentType
       .createField("categories")
       .name("Categories")
-      .type("Link")
-      .linkType("Entry")
-      .validations([
-        {
-          linkContentType: ["category"],
-        },
-      ]);
+      .type("Array")
+      .items({
+        type: "Link",
+        linkType: "Entry",
+        validations: [
+          {
+            linkContentType: ["category"],
+          },
+        ],
+      });
 
     productContentType.changeFieldControl("slug", "builtin", "slugEditor", {
       trackingFieldId: "title",
     });
     productContentType.changeFieldControl("rating", "builtin", "rating");
+    productContentType.displayField("title");
   },
 };
 
