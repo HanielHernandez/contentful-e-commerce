@@ -1,17 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MlNavbar from "./MlNavbar";
+import OrNavbar, { OrNavbarProps } from "../organism/OrNavbar";
+import { OrSiteSearch } from "./OrSiteSearch";
 
 const meta = {
-  title: "Molecules/Navbar",
-  component: MlNavbar,
+  title: "Organism/Navbar",
+  component: OrNavbar,
   parameters: {
-    layout: "centered",
+   
   },
-} satisfies Meta<typeof MlNavbar>;
+} satisfies Meta<typeof OrNavbar>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
 
 export const Default = {
   args: {
@@ -47,5 +49,6 @@ export const Default = {
         icon: "",
       },
     ],
+    search: <OrSiteSearch value=""/>
   },
 } satisfies Story;

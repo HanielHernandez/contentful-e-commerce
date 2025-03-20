@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import contentfuClient from "@/app/lib/contentfulClient";
-import MlNavbar, { MlNavbarProps } from '@/components/molecules/MlNavbar'
+import OrNavbar, { OrNavbarProps } from "@/components/organism/OrNavbar";
 import { cleanContentfulEntry } from "@/utils/contentful";
 
+import type {
+  AutocompleteConnectorParams,
+} from "instantsearch.js/es/connectors/autocomplete/connectAutocomplete";
 
+import { AlgoliaProcutSearch } from "./components/AlgoliaProductsSearch";
 
+export type UseAutocompleteProps = AutocompleteConnectorParams;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,7 @@ const getNavbar = async () => {
   const navbars = await contentfuClient.getEntries({
     content_type: "navbar",
   });
-  return cleanContentfulEntry<MlNavbarProps>(navbars.items[0]);
+  return cleanContentfulEntry<OrNavbarProps>(navbars.items[0]);
 };
 
 
@@ -25,15 +30,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const navbar =  await getNavbar()
-
+  const navbar = await getNavbar();
 
   return (
     <html lang="en">
-      <body >
-      
-      <MlNavbar {...navbar} /> 
+      <body>
+        <OrNavbar
+          {...navbar}
+          search={ 
+            <AlgoliaProcutSearch/>
+
+          }
+        />
         {children}
       </body>
     </html>

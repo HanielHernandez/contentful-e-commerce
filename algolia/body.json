@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "tags": [],
+    "concepts": []
+  },
+  "fields": {
+    "slug": {
+      "en-US": "practical-silk-soap"
+    },
+    "title": {
+      "en-US": "Practical Silk Soap"
+    },
+    "description": {
+      "en-US": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "marks": [],
+                "value": "The Visionary discrete projection Pants offers reliable performance and unique design ed",
+                "nodeType": "text"
+              }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    },
+    "images": {
+      "en-US": [
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "31lStyknWDDZafGIcfehzS"
+          }
+        },
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "4BH5LS0PgoCdMfBFPhnrO8"
+          }
+        },
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "161OsIrpsvuHiSLUUjf1Np"
+          }
+        },
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "6mtG6lZEddajpj5p9PEfUg"
+          }
+        }
+      ]
+    },
+    "price": {
+      "en-US": 0.93
+    },
+    "rating": {
+      "en-US": 1.6
+    },
+    "categories": {
+      "en-US": [
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "54tdz6o9Y6MrhLuxELbDWM"
+          }
+        }
+      ]
+    }
+  },
+  "sys": {
+    "type": "Entry",
+    "id": "6jPrIx3wrUgKG38nRjDFvC",
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "0k1lmot35ek0"
+      }
+    },
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "contentType": {
+      "sys": {
+        "type": "Link",
+        "linkType": "ContentType",
+        "id": "product"
+      }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "4XbRxljXEKtB77PIDxDrUR"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "4XbRxljXEKtB77PIDxDrUR"
+      }
+    },
+    "revision": 2,
+    "createdAt": "2025-03-19T18:47:39.330Z",
+    "updatedAt": "2025-03-20T20:46:07.311Z",
+    "publishedVersion": 3
+  }
+}

@@ -7,7 +7,7 @@ export interface AtTextFieldProps
 }
 
 const baseClass =
-  "bg-neutral-200  text-neutral-600 leading-6 placeholder:text-neutral-400 px-4 py-3 focus:outline-blue-400 ";
+  "w-full bg-neutral-200  text-neutral-600 leading-6 placeholder:text-neutral-400 px-4 py-3 focus:outline-blue-400 ";
 export function AtTextField({ pill = false, className, ...props }: AtTextFieldProps) {
   return (
     <input
