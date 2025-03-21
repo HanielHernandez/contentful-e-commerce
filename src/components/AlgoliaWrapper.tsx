@@ -1,5 +1,5 @@
 import { algoliaClient } from "@/app/lib/algolia";
-import { InstantSearch } from "react-instantsearch";
+import { Configure, InstantSearch } from "react-instantsearch";
 
 export interface AlgoliaWrapperProps {
   children: React.ReactNode
@@ -7,5 +7,13 @@ export interface AlgoliaWrapperProps {
 
 
 export default function AlgoliaWrapper({children}:AlgoliaWrapperProps) {
-  return <InstantSearch searchClient={algoliaClient} indexName="elastic">{children}</InstantSearch>;
+  return (
+    <InstantSearch searchClient={algoliaClient} indexName="elastic">
+      <Configure
+        hitsPerPage={25}
+      />
+
+      {children}
+    </InstantSearch>
+  );
 }

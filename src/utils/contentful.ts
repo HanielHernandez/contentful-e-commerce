@@ -65,23 +65,24 @@ export const cleanContentfulEntry = <T>(data: Entry) => {
 
     result = {
         ...result,
-        CONTENT_TYPE: sys?.contentType?.sys?.id,
+        CONTENT_TYPE: sys?.contentType?.sys?.id || sys.type,
         CONTENTFUL_ID: sys?.id,
         UPDATED_AT: sys?.updatedAt
     }
 
     Object.keys(fields).forEach((key) => {
         const field = (fields as Record<string, any>)[key]
+        
+
         if (Array.isArray(field)) {
             const hasFields = field.some((item: Entry<any>) => !!item.fields)
             const hasSys = field.some((item: Entry<any>) => !!item.sys)
 
-            // Apply for Cloudinary images or other types of objects
             if (!hasFields && !hasSys) {
                 result = { ...result, [key]: field }
                 return
             }
-            // Validation for draft array entries
+
             if (!hasFields && hasSys) {
                  
                 result[key] = null
@@ -92,12 +93,11 @@ export const cleanContentfulEntry = <T>(data: Entry) => {
                 ...result,
                 [key]: field
                     .map((item) => {
-                        //validate if item is a draft with cleanContentfulEntry in {}
                         const cleanEntry = cleanContentfulEntry(item)
-                        if (!cleanEntry.CONTENT_TYPE) return undefined
+                        if (!cleanEntry.CONTENT_TYPE ) return undefined
                         return {
                             ...cleanEntry,
-                            CONTENT_TYPE: item.sys?.contentType?.sys.id ?? null,
+                            CONTENT_TYPE: (item.sys?.contentType?.sys.id || cleanEntry.CONTENT_TYPE) ?? null,
                             CONTENTFUL_ID: item.sys?.id ?? null,
                             UPDATED_AT: item.sys?.updatedAt ?? null
                         }

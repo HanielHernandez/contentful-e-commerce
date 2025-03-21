@@ -6,13 +6,23 @@ export interface AtImageProps extends Omit<ImageProps, "src" | "alt"> {
   file: ContentfulAsset;
   title: string;
   description: string;
+  width: number;
+  height: number;
 }
 
-export function AtImage({ file, ...rest }: AtImageProps) {
+export function AtImage({ file, width, height , className}: AtImageProps) {
   const url = useMemo<string>(
     () => (file.url.startsWith("//") ? `https:${file.url}` : file.url),
     [file]
   );
 
-  return <Image {...rest} src={url} alt={file.name || ""}></Image>;
+  return (
+    <Image
+      className={className}
+      src={url}
+      alt={file.name || ""}
+      width={width}
+      height={height}
+    ></Image>
+  );
 }

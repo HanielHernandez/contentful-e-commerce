@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
-import contentfulManagement from "contentful-management";
 import { algoliasearch } from "algoliasearch";
 import { createClient } from "contentful";
+import { cleanContentfulEntry } from "@/utils/contentful";
 
 dotenv.config();
 
@@ -15,15 +15,10 @@ const ALGOLIA_API_KEY = process.env.NEXT_PUBLIC_ALGOLIA_WRITE_API_KEY || "";
 
 const algoliaClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
 
-const SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-
 async function getContentfulProducts() {
-  // const space = await contentfulClient.getSpace(SPACE_ID);
-  // const environment = await space.getEnvironment("master");
-
   const products = await contentfulClient.getEntries({
     content_type: "product",
-    include: 10,
+    include: 8,
     limit: 100,
   });
 
@@ -31,28 +26,23 @@ async function getContentfulProducts() {
 }
 
 export default async function seed() {
-  console.log(process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN);
-
   const { items } = await getContentfulProducts();
-
-  const { objectIDs } = await algoliaClient.batch({
-    indexName: "elastic",
-    batchWriteParams: {
-      requests: items.map((x) => {
-        return {
-          action: "addObject",
-          body: x,
-        };
-      }),
-    },
-  });
-
-  // ({
+  // const { objectIDs } = await algoliaClient.batch({
   //   indexName: "elastic",
-  //   objectID: product.sys.id,
-  //   body: product,
-  // });
-  console.log("✅object indexed:  ", JSON.stringify(objectIDs, null, 4));
+  //   batchWriteParams: {
+  //     requests: items.map((x) => {
+  //       return {
+  //         action: "addObject",
+  //         body: cleanContentfulEntry(x),
+  //       };
+  //     }),
+  //   },
+  //});
+
+  console.log(
+    "✅object indexed: ",
+    JSON.stringify(cleanContentfulEntry(items[0]), null, 4)
+  );
 }
 
 seed();

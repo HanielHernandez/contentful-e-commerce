@@ -20,6 +20,13 @@ export interface ContentfulEntry {
 
 export interface ContentfulAsset extends ContentfulContentType {
   url: string;
+  details: {
+    size: number; 
+    image: {
+      width: number;
+      height: number;
+    }
+  }
 }
 
 
