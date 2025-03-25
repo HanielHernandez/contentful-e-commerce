@@ -1,4 +1,3 @@
-import { ContentfulContentType } from "@/types/contentful/content-model/contentful-types";
 import { AtImage, AtImageProps } from "../atoms/AtImage";
 import { AtText } from "../atoms/AtText";
 

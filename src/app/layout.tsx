@@ -4,9 +4,7 @@ import contentfuClient from "@/app/lib/contentfulClient";
 import OrNavbar, { OrNavbarProps } from "@/components/organism/OrNavbar";
 import { cleanContentfulEntry } from "@/utils/contentful";
 
-import type {
-  AutocompleteConnectorParams,
-} from "instantsearch.js/es/connectors/autocomplete/connectAutocomplete";
+import type { AutocompleteConnectorParams } from "instantsearch.js/es/connectors/autocomplete/connectAutocomplete";
 
 import { AlgoliaProcutSearch } from "./components/AlgoliaProductsSearch";
 
@@ -24,7 +22,6 @@ const getNavbar = async () => {
   return cleanContentfulEntry<OrNavbarProps>(navbars.items[0]);
 };
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -35,14 +32,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <OrNavbar
-          {...navbar}
-          search={ 
-            <AlgoliaProcutSearch/>
-
-          }
-        />
-        {children}
+        <OrNavbar {...navbar} search={<AlgoliaProcutSearch />} />
+        <main className="container px-4 md:mx-auto pt-42 h-[calc(100vh-144px)]">
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
-import * as management  from "contentful-management";
+import * as management from "contentful-management";
 
-const createClient = management.default.createClient;
+const createClient = management.createClient;
 const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
 });

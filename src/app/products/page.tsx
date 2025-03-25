@@ -1,20 +1,35 @@
-"use client"
-import { useEffect } from "react";
-import contentfulClient from "../lib/contentfulClient";
+"use client";
+import { algoliaClient } from "@/app/lib/algolia";
+import { InstantSearch, Pagination } from "react-instantsearch";
+import "instantsearch.css/themes/algolia.css";
+import { AlgoliaSearch } from "@/components/AlgoliaSearch";
+import { ProductList } from "@/components/ProductList";
+import { ProductsRefinements } from "@/components/ProductsRefinements";
+import { AtText } from "@/components/atoms/AtText";
 
 export default function ProductsPage() {
-  const getProduct = async () => {
-    const pr = await contentfulClient.getEntries({
-      content_type: "product",
-      include: 10,
-      limit: 1,
-    });
-    console.log(pr);
-  };
+  const visible = false;
 
-  useEffect(() => {
-    getProduct();
-  }, []);
+  return (
+    <div>
+      <AtText variant="h2" className="my-6">
+        Products
+      </AtText>
 
-  return <>Products page</>;
+      <InstantSearch
+        searchClient={algoliaClient}
+        indexName="elastic"
+        routing={true}
+      >
+        {/* <SearchBox /> */}
+        <div className=""></div>
+        <AlgoliaSearch searchBarOnly />
+        <div className="flex flex-col md:flex-row gap-4 py-6 ">
+          <ProductsRefinements />
+          <ProductList />
+        </div>
+        <Pagination />
+      </InstantSearch>
+    </div>
+  );
 }

@@ -1,19 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import OrNavbar, { OrNavbarProps } from "../organism/OrNavbar";
+import OrNavbar from "../organism/OrNavbar";
 import { OrSiteSearch } from "./OrSiteSearch";
 
 const meta = {
   title: "Organism/Navbar",
   component: OrNavbar,
-  parameters: {
-   
-  },
+  parameters: {},
 } satisfies Meta<typeof OrNavbar>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
 
 export const Default = {
   args: {
@@ -22,9 +19,15 @@ export const Default = {
       height: 40,
       title: "",
       description: "",
-
       file: {
         url: "https://images.ctfassets.net/0k1lmot35ek0/nP2RfmajSUD9g8slshoVU/538a9a4a12d620d842d7b61bf9f602e9/descarga__4_.png",
+        details: {
+          size: 0, // bytes
+          image: {
+            width: 0, // pixels
+            height: 0, // pixels
+          },
+        },
       },
     },
     links: [
@@ -49,6 +52,6 @@ export const Default = {
         icon: "",
       },
     ],
-    search: <OrSiteSearch value=""/>
+    search: <OrSiteSearch value="" />,
   },
 } satisfies Story;

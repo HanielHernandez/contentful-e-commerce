@@ -10,7 +10,7 @@ export interface AtNavbarLinkProps {
 export default function AtNavbarLink({ url, text }: AtNavbarLinkProps) {
   return (
     <Link
-      className="text-base font-bold text-neutral-800 hover:opacity-75 p-2"
+      className="text-base transition-colors ease-initial font-medium border-b hover:border-b-neutral-800/75 border-white text-neutral-800 hover:opacity-75 px-2 mx-2 py-2 inline-block"
       href={url}
     >
       {text}

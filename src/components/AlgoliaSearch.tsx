@@ -5,10 +5,14 @@ import { useState } from "react";
 import { MlProductItemProps } from "./molecules/MlProductItem";
 import { OrProductList } from "./organism/OrPoductlist";
 
-export function AlgoliaSearch() {
+export interface AlgoliaSearchProps {
+  searchBarOnly?: boolean;
+}
+
+export function AlgoliaSearch({ searchBarOnly = false }: AlgoliaSearchProps) {
   const { refine, query } = useSearchBox();
   const [inputValue, setInputValue] = useState(query);
-  const { items, isLastPage, showMore, results } = useInfiniteHits();
+  const { items, isLastPage, showMore } = useInfiniteHits();
 
   const onQueryChange = ({
     currentTarget: { value },
@@ -22,20 +26,22 @@ export function AlgoliaSearch() {
         onChange={onQueryChange}
         value={inputValue}
         results={
-          query && (
-            <OrProductList
-              isLastPage={isLastPage}
-              showMore={showMore}
-              products={items.map<MlProductItemProps>((item) => ({
-                images: item.images,
-                title: item.title,
-                description: item.description,
-                price: item.price,
-                objectID: item.id,
-                contentfulId: item.CONTENTFUL_ID,
-              }))}
-            />
-          )
+          searchBarOnly
+            ? ""
+            : query && (
+                <OrProductList
+                  isLastPage={isLastPage}
+                  showMore={showMore}
+                  products={items.map<MlProductItemProps>((item) => ({
+                    images: item.images,
+                    title: item.title,
+                    description: item.description,
+                    price: item.price,
+                    objectID: item.id,
+                    contentfulId: item.CONTENTFUL_ID,
+                  }))}
+                />
+              )
         }
       />
     </div>

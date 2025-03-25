@@ -7,6 +7,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof AtButton>;
 
 export default meta;
@@ -16,7 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     color: "primary",
-    children: "My Button"
+    children: "My Button",
   },
 } satisfies Story;
-

@@ -2,27 +2,28 @@ import { ContentFields } from "contentful-management";
 import { getEnvironment } from "./contentful";
 import { schemas } from "./contentfulSchema";
 
-async function createContentTypes():Promise<void> {
+async function createContentTypes(): Promise<void> {
   const environment = await getEnvironment();
 
   for (const schema of schemas) {
     try {
       const contentType = await environment.getContentType(schema.id);
-      console.log(`Content type '${schema.id}' already exists. Updating...`);
+      console.log(
+        `Content type '${contentType.name}' already exists. Updating...`
+      );
     } catch (error) {
+      console.error(`error'${error}'...`);
+
       console.log(`Creating content type '${schema.id}'...`);
       const contentType = await environment.createContentTypeWithId(schema.id, {
         name: schema.name,
-        fields: 
-         
-        
-        schema.fields.map((field) => {
+        fields: schema.fields.map((field) => {
           const fieldConfig = {
             id: field.id,
             name: field.name,
             type: field.type,
             required: field.required || false,
-            localized: field.localized || false
+            localized: field.localized || false,
           } as ContentFields;
 
           // Handle references
@@ -35,7 +36,6 @@ async function createContentTypes():Promise<void> {
             fieldConfig.items = field.items;
           }
 
-         
           return fieldConfig;
         }),
       });
