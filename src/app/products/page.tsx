@@ -8,8 +8,6 @@ import { ProductsRefinements } from "@/components/ProductsRefinements";
 import { AtText } from "@/components/atoms/AtText";
 
 export default function ProductsPage() {
-  const visible = false;
-
   return (
     <div>
       <AtText variant="h2" className="my-6">

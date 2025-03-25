@@ -36,7 +36,7 @@ export default function ProductPriceRefinement(props: UseRangeProps) {
 
   const refineRange = useCallback(() => {
     refine([from ? Number(from) : undefined, to ? Number(to) : undefined]);
-  }, [from, to]);
+  }, [from, to, refine]);
 
   return (
     <div className="flex flex-col">
