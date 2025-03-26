@@ -46,6 +46,7 @@ export function MlProductCard({
               </span>
             );
           })}
+          {rating}
         </div>
         <></>
         <div className="text-lg font-bold text-blue-800">

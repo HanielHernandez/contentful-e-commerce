@@ -21,8 +21,8 @@ export function AtImage({ file, width, height, className }: AtImageProps) {
       className={className}
       src={url}
       alt={file.name || ""}
-      width={width}
-      height={height}
+      width={width || file.details.image.width}
+      height={height || file.details.image.height}
     ></Image>
   );
 }

@@ -7,6 +7,7 @@ import { cleanContentfulEntry } from "@/utils/contentful";
 import type { AutocompleteConnectorParams } from "instantsearch.js/es/connectors/autocomplete/connectAutocomplete";
 
 import { AlgoliaProcutSearch } from "./components/AlgoliaProductsSearch";
+import { OrFooter, OrFooterProps } from "@/components/organism/OrFooter";
 
 export type UseAutocompleteProps = AutocompleteConnectorParams;
 
@@ -22,20 +23,32 @@ const getNavbar = async () => {
   return cleanContentfulEntry<OrNavbarProps>(navbars.items[0]);
 };
 
+const getFooter = async () => {
+  const footers = await contentfuClient.getEntries({
+    content_type: "footer",
+    limit: 1,
+    include: 8,
+  });
+
+  return footers.items && footers.items.length
+    ? cleanContentfulEntry<OrFooterProps>(footers.items[0])
+    : null;
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const navbar = await getNavbar();
-
+  const footer = await getFooter();
   return (
     <html lang="en">
       <body>
         <OrNavbar {...navbar} search={<AlgoliaProcutSearch />} />
-        <main className="container px-4 md:mx-auto pt-42 h-[calc(100vh-144px)]">
-          {children}
-        </main>
+        <main className="md:mx-auto pt-42 ">{children}</main>
+
+        {footer && <OrFooter {...footer}></OrFooter>}
       </body>
     </html>
   );

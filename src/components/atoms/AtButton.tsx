@@ -2,7 +2,8 @@ import clsx from "clsx";
 import React from "react";
 type color = "primary" | "success" | "danger" | "default";
 
-interface AtButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface AtButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: color;
   label?: string;
   children?: React.ReactNode;
@@ -24,7 +25,8 @@ const flatColorClasses: Record<color, string> = {
   default: "text-neutral-600 hover:bg-neutral-300 hovertext-white",
 };
 
-const baseClass = "font-bold leading-6 px-4 py-3  hover:opacity-75";
+const baseClass =
+  "font-bold leading-6 px-4 py-3  hover:opacity-75 cursor-pointer";
 
 export const AtButton = ({
   color = "default",

@@ -6,11 +6,12 @@ import { AlgoliaSearch } from "@/components/AlgoliaSearch";
 import { ProductList } from "@/components/ProductList";
 import { ProductsRefinements } from "@/components/ProductsRefinements";
 import { AtText } from "@/components/atoms/AtText";
+import { ProductSort } from "@/components/ProductsSort";
 
 export default function ProductsPage() {
   return (
-    <div>
-      <AtText variant="h2" className="my-6">
+    <div className="container mx-auto p-4">
+      <AtText variant="h2" className="mb-6">
         Products
       </AtText>
 
@@ -19,12 +20,14 @@ export default function ProductsPage() {
         indexName="elastic"
         routing={true}
       >
-        {/* <SearchBox /> */}
         <div className=""></div>
         <AlgoliaSearch searchBarOnly />
         <div className="flex flex-col md:flex-row gap-4 py-6 ">
           <ProductsRefinements />
-          <ProductList />
+          <div className="flex-flex-col gap-4">
+            <ProductSort />
+            <ProductList />
+          </div>
         </div>
         <Pagination />
       </InstantSearch>
