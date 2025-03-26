@@ -58,8 +58,7 @@ export const Default = {
     },
     description: document as Document,
     title: "Test product",
-    cta: {
-      children: "More",
-    },
+    callToActionText: "Shop Now",
+    url: "/#",
   },
 } satisfies Story;
