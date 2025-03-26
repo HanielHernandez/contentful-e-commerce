@@ -15,8 +15,8 @@ export function OrFooter({ links, logo, description }: OrFooterProps) {
   return (
     <footer className="w-full max-w-screen bg-neutral-200 py-6">
       <div className="container px-4 md:px-0 mx-auto">
-        <div className="flex flex-wrap xl:no-wrap gap-4 md:gap-6 lg:gap-8 justify-between">
-          <div className="flex w-2/5 flex-col gap-4 md:w-full max-w-90">
+        <div className="flex flex-col md:flex-row flex-wrap xl:no-wrap  justify-between">
+          <div className="flex w-full md:w-1/2   xl:w-2/5  flex-col gap-4 max-w-90 items-center md:items-start">
             <AtImage {...logo} width={128} height={128} />
             <AtText As="div" variant="paragraph">
               {documentToReactComponents(description)}
@@ -26,7 +26,7 @@ export function OrFooter({ links, logo, description }: OrFooterProps) {
           {links.map((link) => (
             <div
               key={link.text}
-              className="flex md:w-1/2  lg:w-1/5 flex-col  text-neutral-800"
+              className="flex md:w-1/2 py-4 md:py-6 lg:w-1/5 flex-col  text-neutral-800"
             >
               <MlLinksList {...link} />
             </div>
