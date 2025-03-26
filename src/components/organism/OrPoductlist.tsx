@@ -36,8 +36,8 @@ export function OrProductList({
     <ul>
       {products.map((product) => {
         return (
-          <li key={product.objectID}>
-            <Link href={`/products/{${product.contentfulId}}`}>
+          <li key={product.contentfulId}>
+            <Link href={`/products/${product.contentfulId}`}>
               <MlProductItem {...product} />
             </Link>
           </li>
