@@ -46,7 +46,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <OrNavbar {...navbar} search={<AlgoliaProcutSearch />} />
-        <main className="md:mx-auto pt-42 ">{children}</main>
+        <main className="md:mx-auto pt-42 min-h-screen ">{children}</main>
 
         {footer && <OrFooter {...footer}></OrFooter>}
       </body>

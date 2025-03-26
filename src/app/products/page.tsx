@@ -1,12 +1,13 @@
 "use client";
 import { algoliaClient } from "@/app/lib/algolia";
-import { InstantSearch, Pagination } from "react-instantsearch";
+import { InstantSearch } from "react-instantsearch";
 import "instantsearch.css/themes/algolia.css";
 import { AlgoliaSearch } from "@/components/AlgoliaSearch";
 import { ProductList } from "@/components/ProductList";
 import { ProductsRefinements } from "@/components/ProductsRefinements";
 import { AtText } from "@/components/atoms/AtText";
 import { ProductSort } from "@/components/ProductsSort";
+import { ProductsPagination } from "@/components/blocks/ProductsPagination";
 
 export default function ProductsPage() {
   return (
@@ -29,7 +30,7 @@ export default function ProductsPage() {
             <ProductList />
           </div>
         </div>
-        <Pagination />
+        <ProductsPagination />
       </InstantSearch>
     </div>
   );
