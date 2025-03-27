@@ -32,10 +32,11 @@ const document = {
 
 export const Default = {
   args: {
+    title: "Categories",
     categories: [
       {
         contentTypeId: "1",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
@@ -56,7 +57,7 @@ export const Default = {
       },
       {
         contentTypeId: "2",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
@@ -77,7 +78,7 @@ export const Default = {
       },
       {
         contentTypeId: "3",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
@@ -98,7 +99,7 @@ export const Default = {
       },
       {
         contentTypeId: "4",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
@@ -119,7 +120,7 @@ export const Default = {
       },
       {
         contentTypeId: "5",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
@@ -140,7 +141,7 @@ export const Default = {
       },
       {
         contentTypeId: "6",
-        title: "Test",
+        name: "Test",
         image: {
           title: "",
           width: 1920,
