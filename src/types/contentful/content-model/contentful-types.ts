@@ -6,6 +6,7 @@ export interface ContentfulContentType {
   id?: string;
   name?: string;
   contentTypeId?: string;
+  CONTENTFUL_ID?: string;
 }
 
 export interface ContentfulEntryQuery {
@@ -21,14 +22,13 @@ export interface ContentfulEntry {
 export interface ContentfulAsset extends ContentfulContentType {
   url: string;
   details: {
-    size: number; 
+    size: number;
     image: {
       width: number;
       height: number;
-    }
-  }
+    };
+  };
 }
-
 
 export interface Page extends ContentfulContentType {
   title?: string;

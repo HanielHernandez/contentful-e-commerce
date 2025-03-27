@@ -2,6 +2,7 @@ import PageProps from "@/types/contentful/page-props";
 import contentfulClient from "../lib/contentfulClient";
 import { cleanContentfulEntry } from "@/utils/contentful";
 import { ComponentTypes } from "@/types/contentful/content-types";
+import { redirect } from "next/navigation";
 
 export default async function Page({
   params,
@@ -18,9 +19,7 @@ export default async function Page({
   });
 
   if (!pages.items.length) {
-    return {
-      notFound: true,
-    };
+    redirect("/not-found");
   }
 
   const page = cleanContentfulEntry<PageProps>(pages.items[0]) as PageProps;
