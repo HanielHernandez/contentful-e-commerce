@@ -34,7 +34,20 @@ export const MlSlider: FC<MlSliderProps> = ({
         <Swiper
           {...otherProps}
           ref={swiperRef}
-          slidesPerView={4}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.5,
+            },
+            768: {
+              slidesPerView: 2.5,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1400: {
+              slidesPerView: 4,
+            },
+          }}
           modules={[Navigation]}
         >
           {items.map((item) => {

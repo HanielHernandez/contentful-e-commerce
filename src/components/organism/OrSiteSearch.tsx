@@ -42,7 +42,7 @@ export function OrSiteSearch({
           placeholder="Search"
         ></MlFormField>
         {open && results && (
-          <div className="bg-white z-40 z-70 border max-h-58 overflow-auto border-neutral-200 rounded-b-md absolute top-[calc(100%+1px)] left-4 right-4">
+          <div className="bg-white  z-70 border max-h-58 overflow-auto border-neutral-200 rounded-b-md absolute top-[calc(100%+1px)] left-4 right-4">
             {results}
           </div>
         )}

@@ -19,7 +19,7 @@ export function ProductsPagination(props: UsePaginationProps) {
   const lastPageIndex = nbPages - 1;
 
   return (
-    <ul className="flex flex-row w-full justify-center items-center gap-4">
+    <ul className="flex flex-row w-full flex-wrap justify-center items-center gap-4">
       <PaginationItem
         isDisabled={isFirstPage}
         href={createURL(firstPageIndex)}

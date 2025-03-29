@@ -37,7 +37,7 @@ export const ProductSort: FC = () => {
   });
 
   return (
-    <div className="flex flex-row md:justify-end items-center pb-4 md:px-4 gap-4 w-full">
+    <div className="flex flex-row md:justify-end items-center pb-4  gap-4 w-full">
       <AtText variant="h5">Sort By: </AtText>
       <select
         className="bg-neutral-300 px-4 py-3 rounded-md text-neutral-600"

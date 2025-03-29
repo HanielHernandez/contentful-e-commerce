@@ -27,7 +27,7 @@ const onRenderSlider = (cat: MlSliderItem) => {
     >
       <AtImage
         {...cat.image}
-        className="rounded-md bg-neutral-200 object-contain h-95"
+        className="rounded-md bg-neutral-200 object-contain h-64 md:h-95"
       />
       <div className="">
         <AtText variant="h3">{cat.name}</AtText>
@@ -41,7 +41,7 @@ export const MlCategoriesSlider = ({
   title = "Categories",
 }: MlCategoriesSliderProps) => {
   return (
-    <div className="relative w-full h-full group container mx-auto mb-6">
+    <div className="relative w-full h-full group container mx-auto mb-6 px-4 lg:px-0">
       <MlSlider
         items={categories}
         title={title}

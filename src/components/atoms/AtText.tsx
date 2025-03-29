@@ -23,7 +23,8 @@ export type AtTextVariant =
   | "paragraph"
   | "label"
   | "list-title"
-  | "link";
+  | "link"
+  | "chip";
 
 const textSizes: Record<AtTextVariant, string> = {
   h1: "text-5xl",
@@ -36,6 +37,7 @@ const textSizes: Record<AtTextVariant, string> = {
   label: "text-base",
   link: "text-base",
   ["list-title"]: "text-base",
+  chip: "text-sm",
 };
 
 const fontWeights: Record<AtTextVariant, string> = {
@@ -49,6 +51,7 @@ const fontWeights: Record<AtTextVariant, string> = {
   label: "font-medium",
   link: "font-medium",
   ["list-title"]: "font-bold",
+  chip: "font-medium",
 };
 
 const leadingClasses: Record<AtTextVariant, string> = {
@@ -62,19 +65,21 @@ const leadingClasses: Record<AtTextVariant, string> = {
   label: "",
   link: "",
   ["list-title"]: "leading-6",
+  chip: "leading-none",
 };
 
 const textColors: Record<AtTextVariant, string> = {
-  h1: "text-gray-900",
-  h2: "text-gray-900",
-  h3: "text-gray-900",
-  h4: "text-gray-800",
-  h5: "text-gray-700",
-  h6: "text-gray-600",
-  paragraph: "text-gray-700",
+  h1: "text-gray-900 dark:text-neutral-100",
+  h2: "text-gray-900 dark:text-neutral-100",
+  h3: "text-gray-900 dark:text-neutral-100",
+  h4: "text-gray-800 dark:text-neutral-100",
+  h5: "text-gray-700 dark:text-neutral-200",
+  h6: "text-gray-600 dark:text-neutral-300",
+  paragraph: "text-neutral-600 dark:text-neutral-400",
   label: "text-gray-700",
   link: "text-blue-500 hover:text-blue-700",
   ["list-title"]: "text-neutral-900",
+  chip: "text-gray-600",
 };
 
 const atTextTagMap: Record<AtTextVariant, AtTextTag> = {
@@ -88,6 +93,7 @@ const atTextTagMap: Record<AtTextVariant, AtTextTag> = {
   label: "label",
   link: "a",
   ["list-title"]: "span",
+  chip: "span",
 };
 
 export interface AtTextProps {

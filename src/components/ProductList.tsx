@@ -6,10 +6,10 @@ export const ProductList = () => {
   const { items } = useHits<MlProductCardProps>();
 
   return (
-    <div className="grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4  ">
+    <div className="grid w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 ">
       {items.map((item) => {
         return (
-          <div className="md:p-4" key={item.CONTENTFUL_ID}>
+          <div className="" key={item.CONTENTFUL_ID}>
             <Link
               href={`/products/${item.CONTENTFUL_ID}`}
               key={item.CONTENTFUL_ID}
