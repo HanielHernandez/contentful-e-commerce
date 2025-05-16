@@ -1,13 +1,14 @@
-import clsx from "clsx";
 import { AtImage, AtImageProps } from "../atoms/AtImage";
 import { formatPrice } from "@/app/lib/utils";
+import { AtRating } from "../atoms/AtRating";
+import { Document } from "@contentful/rich-text-types";
 
 export interface MlProductCardProps {
   title: string;
   price: number;
   images: AtImageProps[];
   rating: number;
-  description: string;
+  description: Document;
   CONTENTFUL_ID: string;
 }
 
@@ -18,7 +19,6 @@ export function MlProductCard({
   images,
   CONTENTFUL_ID,
 }: MlProductCardProps) {
-  const stars = new Array(5).fill(0);
   return (
     <div className="flex flex-col w-full h-full transitions-colors ease-in-out duration-300 overflow-hidden  hover:bg-neutral-100 bg-white border border-neutral-200 rounded-md ">
       <AtImage
@@ -29,27 +29,13 @@ export function MlProductCard({
       />
 
       <div className="flex flex-col gap-2 p-4">
-        <div className="text-xl font-bold text-neutral-800 truncate">
-          {title}
-        </div>
         <div>
-          {stars.map((_, i) => {
-            return (
-              <span
-                key={`${CONTENTFUL_ID}-${i}`}
-                className={clsx(
-                  "material-icons !text-base",
-                  i < rating ? "text-yellow-400" : "text-gray-600"
-                )}
-              >
-                star
-              </span>
-            );
-          })}
-          {rating}
+          <div className="text-xl font-bold text-neutral-800 truncate mb-2">
+            {title}
+          </div>
+          <AtRating id={CONTENTFUL_ID} rating={rating}></AtRating>
         </div>
-        <></>
-        <div className="text-lg font-bold text-blue-800">
+        <div className="text-xl font-medium text-gray-600">
           {formatPrice(price)}
         </div>
       </div>

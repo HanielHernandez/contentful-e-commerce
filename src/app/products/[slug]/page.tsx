@@ -1,9 +1,7 @@
 import contentfulClient from "@/app/lib/contentfulClient";
-import {
-  ProductDetails,
-  ProductDetailsProps,
-} from "@/components/blocks/ProductDetails";
+import { ProductDetailsProps } from "@/components/blocks/ProductDetails";
 import { cleanContentfulEntry } from "@/utils/contentful";
+import { ProductPage } from "./ProductPage";
 
 export default async function Page({
   params,
@@ -13,5 +11,6 @@ export default async function Page({
   const { slug } = await params;
   const productEntry = await contentfulClient.getEntry(slug);
   const product = cleanContentfulEntry<ProductDetailsProps>(productEntry);
-  return <ProductDetails {...product} />;
+
+  return <ProductPage product={product} />;
 }

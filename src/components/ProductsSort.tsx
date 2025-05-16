@@ -37,10 +37,10 @@ export const ProductSort: FC = () => {
   });
 
   return (
-    <div className="flex flex-row md:justify-end items-center pb-4  gap-4 w-full">
+    <div className="flex flex-row md:justify-end items-center pb-4  gap-4 w-full relative">
       <AtText variant="h5">Sort By: </AtText>
       <select
-        className="bg-neutral-300 px-4 py-3 rounded-md text-neutral-600"
+        className="bg-neutral-100 border border-neutral-300 px-4 py-3 rounded-md text-neutral-600"
         onChange={(event) => refine(event.target.value)}
         value={currentRefinement}
       >
@@ -50,6 +50,9 @@ export const ProductSort: FC = () => {
           </option>
         ))}
       </select>
+      <i className="material-icons w-6 h6 absolute z-4 text-neutral-600">
+        keyboard_arrow_down
+      </i>
     </div>
   );
 };

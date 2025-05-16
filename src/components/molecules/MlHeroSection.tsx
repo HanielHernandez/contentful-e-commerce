@@ -28,7 +28,7 @@ export function MlHeroSection({
         className="absolute top-0 left-0 right-0 bottom-0 !w-full !h-full z-20 "
       />
 
-      <div className="flex gap-4 z-30 p-4 py-8 justify-start container mx-auto items-end w-full h-full">
+      <div className="flex gap-4 z-30 p-4 py-16 justify-start container mx-auto items-end w-full h-full">
         <div>
           <AtText variant="h1" As="h1" className="text-white leading-tight">
             {title}

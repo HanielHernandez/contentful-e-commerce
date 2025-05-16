@@ -8,9 +8,15 @@ export interface OrNavbarProps {
   links: AtNavbarLinkProps[];
   logo: AtImageProps;
   search?: React.ReactNode;
+  productCounter?: number;
 }
 
-export default function OrNavbar({ links = [], search, logo }: OrNavbarProps) {
+export default function OrNavbar({
+  links = [],
+  search,
+  logo,
+  productCounter = 0,
+}: OrNavbarProps) {
   return (
     <div className="w-full w-flex flex-col  fixed top-0 z-50 bg-white ">
       <div className="flex flex-row justify-between items-center py-4 bg-blue-800 text-white px-4 pu-2"></div>
@@ -32,9 +38,15 @@ export default function OrNavbar({ links = [], search, logo }: OrNavbarProps) {
           </Link>
           <Link
             href="/cart"
-            className="w-10 h-10 p-2 rounded-full bg-orange-400 text-white"
+            className="w-10 h-10 p-2 rounded-full relative bg-orange-400 text-white"
           >
             <span className="material-icons-outlined">shopping_bag</span>
+
+            {productCounter > 0 && (
+              <span className="bg-gray-600 text-white w-5 h-5  text-xs font-medium absolute transform translate-x-1/2 -translate-y-1/2  top-0 right-0 rounded-full text-center">
+                {productCounter}
+              </span>
+            )}
           </Link>
         </div>
       </div>

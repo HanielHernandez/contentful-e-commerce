@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from "clsx";
-import { FC, useRef } from "react";
-import { Swiper, SwiperProps, SwiperRef } from "swiper/react";
+import { FC, useState } from "react";
+import { Swiper, SwiperClass, SwiperProps } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
@@ -25,15 +25,18 @@ export const MlSlider: FC<MlSliderProps> = ({
   renderSlider,
   ...otherProps
 }: MlSliderProps) => {
-  const swiperRef = useRef<SwiperRef>(null);
+  const [swiperRef, setSwiper] = useState<SwiperClass | null>(null);
 
   return (
     <div className="relative w-full h-full flex flex-col gap-6 py-6 group ">
       <AtText variant="h2"> {title}</AtText>
+      {/* {JSON.stringify(swiperRef, null, 4)} */}
       <div className="relative w-full ">
         <Swiper
           {...otherProps}
-          ref={swiperRef}
+          onSwiper={(swiper) => {
+            setSwiper(swiper);
+          }}
           breakpoints={{
             0: {
               slidesPerView: 1.5,
@@ -59,14 +62,8 @@ export const MlSlider: FC<MlSliderProps> = ({
           })}
         </Swiper>
 
-        <SwiperArrow
-          swiperRef={swiperRef.current}
-          direction="left"
-        ></SwiperArrow>
-        <SwiperArrow
-          swiperRef={swiperRef.current}
-          direction="right"
-        ></SwiperArrow>
+        <SwiperArrow swiperRef={swiperRef} direction="left"></SwiperArrow>
+        <SwiperArrow swiperRef={swiperRef} direction="right"></SwiperArrow>
       </div>
     </div>
   );
@@ -74,7 +71,7 @@ export const MlSlider: FC<MlSliderProps> = ({
 
 export const SwiperArrow: FC<{
   direction: "left" | "right";
-  swiperRef: SwiperRef | null;
+  swiperRef: SwiperClass | null;
 }> = ({ direction, swiperRef }) => {
   return (
     <AtButton
@@ -83,9 +80,9 @@ export const SwiperArrow: FC<{
         if (swiperRef === undefined || swiperRef === null) return;
 
         if (direction === "right") {
-          swiperRef.swiper.slideNext();
+          swiperRef.slideNext();
         } else {
-          swiperRef?.swiper.slidePrev();
+          swiperRef.slidePrev();
         }
       }}
       className={clsx(

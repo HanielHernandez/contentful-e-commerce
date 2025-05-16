@@ -25,3 +25,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+select {
+    appearance: none; /* Standard */
+  -webkit-appearance: none; /* Safari & Chrome */
+  -moz-appearance: none; /* Firefox */
+}
+select::-ms-expand {
+  display: none;
+}
