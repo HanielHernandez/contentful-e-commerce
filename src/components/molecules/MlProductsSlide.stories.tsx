@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MlProductsSlider } from "./MlProductsSlider";
+import { document } from "@/utils/mocks";
 
 const meta = {
   title: "Molecules/MlProductSlider",
@@ -16,7 +17,7 @@ export const Default = {
     products: [
       {
         CONTENTFUL_ID: "1",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -41,7 +42,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "2",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -66,7 +67,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "1",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -91,7 +92,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "2",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -116,7 +117,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "1",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -141,7 +142,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "2",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -166,7 +167,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "1",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {
@@ -191,7 +192,7 @@ export const Default = {
       },
       {
         CONTENTFUL_ID: "2",
-        description: "",
+        description: document,
         price: 20,
         images: [
           {

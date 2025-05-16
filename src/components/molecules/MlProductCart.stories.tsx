@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MlProductCard } from "./MlProductCard";
-import { Document } from "@contentful/rich-text-types";
+import { document } from "@/utils/mocks";
 
 const meta = {
   title: "Molecules/MlProductCard",
@@ -14,29 +14,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const document = {
-  nodeType: "document",
-  data: {},
-  content: [
-    {
-      nodeType: "paragraph",
-      data: {},
-      content: [
-        {
-          nodeType: "text",
-          value: "Ut reprehenderit reprehenderit incididunt exercitation eu",
-          marks: [],
-          data: {},
-        },
-      ],
-    },
-  ],
-};
-
 export const Default = {
   args: {
     CONTENTFUL_ID: "1",
-    description: document as Document,
+    description: document,
     price: 20,
     images: [
       {
